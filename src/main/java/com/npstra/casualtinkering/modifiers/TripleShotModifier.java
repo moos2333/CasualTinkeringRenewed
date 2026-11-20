@@ -32,9 +32,12 @@ public class TripleShotModifier extends Modifier implements ProjectileShootModif
     public void onProjectileShoot(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack ammo, Projectile projectile, AbstractArrow arrow, ModDataNBT persistentData, boolean primary) {
         if (!primary || persistentData.getBoolean(SPREAD_DONE) || projectile.level().isClientSide) return;
         if (!(shooter instanceof Player player) || !player.isShiftKeyDown()) return;
-        if (ammo.isEmpty() || ammo.getCount() < 3 || !(projectile instanceof ThrownShuriken)) return;
+        if (ammo.isEmpty() || !(projectile instanceof ThrownShuriken)) return;
+        ItemStack held = player.getMainHandItem().is(ammo.getItem()) ? player.getMainHandItem() : player.getOffhandItem();
+        if (!held.is(ammo.getItem()) || held.getCount() < 3) return;
 
         persistentData.putBoolean(SPREAD_DONE, true);
+        if (!player.getAbilities().instabuild) held.shrink(2);
 
         Level level = projectile.level();
         float velocity = ConditionalStatModifierHook.getModifiedStat(tool, shooter, ToolStats.VELOCITY);
