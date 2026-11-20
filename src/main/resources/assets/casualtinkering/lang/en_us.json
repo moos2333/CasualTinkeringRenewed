@@ -5,7 +5,7 @@
   "pattern.casualtinkering.saw_blade": "Saw Blade",
   "modifier.casualtinkering.circular_saw_attack": "Sawing",
   "modifier.casualtinkering.circular_saw_attack.flavor": "Spin to win!",
-  "modifier.casualtinkering.circular_saw_attack.description": "Right-click to charge a spinning attack that damages enemies in a cone.",
+  "modifier.casualtinkering.circular_saw_attack.description": "Hold right-click to rapidly slice enemies in a cone. Low damage per hit, but at very high frequency.",
   "modifier.casualtinkering.magic_sword": "Magic Sword",
   "modifier.casualtinkering.magic_sword.flavor": "Awaken the Magic Sword!",
   "modifier.casualtinkering.magic_sword.description": "A fully charged melee strike summons magical swords to pierce the target. Higher levels summon more swords for increased total damage.",
