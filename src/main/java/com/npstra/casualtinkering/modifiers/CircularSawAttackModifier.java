@@ -1,7 +1,6 @@
 package com.npstra.casualtinkering.modifiers;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -34,7 +33,7 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
 
     private static final String KEY_LAST_ATTACK_TICK = "casualtinkering:circular_saw_last_tick";
     private static final double COS_HALF_ANGLE = Math.cos(Math.toRadians(45.0));
-    private static final ModifierId SWEEPING_EDGE_ID = new ModifierId(new ResourceLocation("tconstruct", "sweeping_edge"));
+    private static final ModifierId SWEEPING_EDGE_ID = new ModifierId("tconstruct", "sweeping_edge");
     private static final float SECONDARY_BASE_RATIO = 0.50f;
     private static final float SECONDARY_RATIO_PER_LEVEL = 0.15f;
 
