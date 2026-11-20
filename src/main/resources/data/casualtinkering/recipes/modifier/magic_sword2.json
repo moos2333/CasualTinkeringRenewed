@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    { "item": "tconstruct:small_blade" },
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:gold_ingot" }
+
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "level": {
+    "min": 2,
+    "max": 3
+  },
+  "allow_crystal": false,
+  "result": "casualtinkering:magic_sword"
+}

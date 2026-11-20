@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    { "item": "tconstruct:small_blade" },
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:iron_ingot" }
+  ],
+  "level": {
+    "min": 2,
+    "max": 3
+  },
+  "result": "casualtinkering:magic_sword_coop",
+  "slots": {
+    "upgrades": 1
+  },
+  "allow_crystal": false,
+  "tools": {
+    "tag": "tconstruct:modifiable/melee"
+  }
+}
