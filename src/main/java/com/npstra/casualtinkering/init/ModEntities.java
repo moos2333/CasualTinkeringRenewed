@@ -18,7 +18,7 @@ public class ModEntities {
             () -> EntityType.Builder.<EntityMagicSword>of(EntityMagicSword::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f)
                     .clientTrackingRange(4)
-                    .updateInterval(2)
+                    .updateInterval(1)
                     .build(id("magic_sword")));
 
     public static final RegistryObject<EntityType<ThrownBoomerang>> THROWN_BOOMERANG = ENTITIES.register("thrown_boomerang",

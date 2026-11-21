@@ -3,9 +3,6 @@ package com.npstra.casualtinkering.entity;
 import com.npstra.casualtinkering.init.ModEntities;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -26,7 +23,6 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.entity.ToolProjectile;
 
 public class GunbladeBullet extends Projectile implements ToolProjectile {
-    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(GunbladeBullet.class, EntityDataSerializers.ITEM_STACK);
     private static final int MAX_LIFE = 20;
     private static final float DRAG = 0.99F;
 
@@ -51,23 +47,19 @@ public class GunbladeBullet extends Projectile implements ToolProjectile {
         Vec3 start = shooter.getEyePosition().add(look.scale(0.6));
         this.setPos(start.x, start.y, start.z);
         this.setDeltaMovement(look.scale(speed));
-        this.entityData.set(STACK, this.toolStack);
     }
 
     private void setStack(ItemStack stack) {
         this.toolStack = stack;
         this.tool = ToolStack.from(stack);
-        this.entityData.set(STACK, stack);
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(STACK, ItemStack.EMPTY);
-    }
+    protected void defineSynchedData() {}
 
     @Override
     public ItemStack getDisplayTool() {
-        return this.entityData.get(STACK);
+        return ItemStack.EMPTY;
     }
 
     @Override

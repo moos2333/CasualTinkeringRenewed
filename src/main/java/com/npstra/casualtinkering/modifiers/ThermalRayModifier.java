@@ -73,6 +73,11 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
     }
 
     @Override
+    public Component getDisplayName(int level) {
+        return getDisplayName();
+    }
+
+    @Override
     public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source) {
         if (tool.isBroken() || source != InteractionSource.RIGHT_CLICK) return InteractionResult.PASS;
         if (isOverheated(tool, player.level())) {

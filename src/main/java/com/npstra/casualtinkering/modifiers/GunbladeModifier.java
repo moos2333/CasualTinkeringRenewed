@@ -51,6 +51,11 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
     }
 
     @Override
+    public Component getDisplayName(int level) {
+        return getDisplayName();
+    }
+
+    @Override
     public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source) {
         if (source != InteractionSource.RIGHT_CLICK || tool.isBroken()) return InteractionResult.PASS;
         ModDataNBT data = tool.getPersistentData();

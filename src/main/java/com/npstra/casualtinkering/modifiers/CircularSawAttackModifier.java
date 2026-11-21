@@ -1,5 +1,6 @@
 package com.npstra.casualtinkering.modifiers;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -46,6 +47,11 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
     @Override
     protected void registerHooks(Builder builder) {
         builder.addHook(this, ModifierHooks.GENERAL_INTERACT, ModifierHooks.TOOL_USING);
+    }
+
+    @Override
+    public Component getDisplayName(int level) {
+        return getDisplayName();
     }
 
     private static float getSweepInterval(IToolStackView tool) {

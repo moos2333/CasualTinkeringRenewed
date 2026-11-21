@@ -1,5 +1,6 @@
 package com.npstra.casualtinkering.modifiers;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,6 +28,11 @@ public class TripleShotModifier extends Modifier implements ProjectileShootModif
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         hookBuilder.addHook(this, ModifierHooks.PROJECTILE_SHOT);
+    }
+
+    @Override
+    public Component getDisplayName(int level) {
+        return getDisplayName();
     }
 
     @Override
