@@ -102,9 +102,7 @@ public class ThrownBoomerang extends Projectile implements ToolProjectile {
             } else {
                 if (!owner.getAbilities().instabuild) {
                     ItemStack toGive = this.toolStack.copy();
-                    if (owner.getInventory().add(toGive)) {
-                        toGive.shrink(1);
-                    } else {
+                    if (!owner.getInventory().add(toGive)) {
                         owner.drop(toGive, false);
                     }
                 }

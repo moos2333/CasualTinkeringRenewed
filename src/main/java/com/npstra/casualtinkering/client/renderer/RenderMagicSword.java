@@ -3,12 +3,13 @@ package com.npstra.casualtinkering.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.npstra.casualtinkering.entity.EntityMagicSword;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,8 +17,11 @@ import net.minecraft.world.item.Items;
 public class RenderMagicSword extends EntityRenderer<EntityMagicSword> {
     private static final ItemStack RENDER_STACK = new ItemStack(Items.DIAMOND_SWORD);
 
+    private final ItemRenderer itemRenderer;
+
     public RenderMagicSword(EntityRendererProvider.Context context) {
         super(context);
+        this.itemRenderer = context.getItemRenderer();
     }
 
     @Override
@@ -35,12 +39,12 @@ public class RenderMagicSword extends EntityRenderer<EntityMagicSword> {
         poseStack.mulPose(Axis.XP.rotationDegrees(-pitch + 90));
         poseStack.mulPose(Axis.ZP.rotationDegrees(45));
 
-        Minecraft.getInstance().getItemRenderer().renderStatic(RENDER_STACK, ItemDisplayContext.NONE, light, OverlayTexture.NO_OVERLAY, poseStack, buffer, entity.level(), 0);
+        this.itemRenderer.renderStatic(RENDER_STACK, ItemDisplayContext.NONE, light, OverlayTexture.NO_OVERLAY, poseStack, buffer, entity.level(), 0);
         poseStack.popPose();
     }
 
     @Override
     public ResourceLocation getTextureLocation(EntityMagicSword entity) {
-        return null;
+        return InventoryMenu.BLOCK_ATLAS;
     }
 }
