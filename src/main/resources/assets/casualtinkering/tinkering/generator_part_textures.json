@@ -22,7 +22,7 @@
     { "path": "casualtinkering:item/tool/gunblade/blade", "skip_variants": true, "stat_type": "tconstruct:head" },
     { "path": "casualtinkering:item/tool/gunblade/blade_broken", "skip_variants": true, "stat_type": "tconstruct:head" },
     { "path": "casualtinkering:item/tool/gunblade/handle", "skip_variants": true, "stat_type": "tconstruct:handle" },
-    { "path": "casualtinkering:item/tool/gunblade/barrel", "skip_variants": true, "stat_type": "tconstruct:grip" },
+    { "path": "casualtinkering:item/tool/gunblade/barrel", "skip_variants": true, "stat_type": "tconstruct:limb" },
 
     { "path": "casualtinkering:item/tool/parts/saw_blade", "stat_type": "tconstruct:head" }
   ]

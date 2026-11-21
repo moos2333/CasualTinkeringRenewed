@@ -5,7 +5,7 @@
       "stat_types": [
         "tconstruct:head",
         "tconstruct:handle",
-        "tconstruct:grip"
+        "tconstruct:limb"
       ],
       "primary_part": 0
     },
@@ -28,6 +28,7 @@
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
+        "tconstruct:durability": 0.5,
         "tconstruct:mining_speed": 0.5
       }
     },

@@ -3,7 +3,7 @@
   "parts": [
     "tconstruct:small_blade",
     "tconstruct:tool_handle",
-    "tconstruct:tool_handle"
+    "tconstruct:bow_limb"
   ],
   "pattern": {
     "item": "tconstruct:venom_bottle"
