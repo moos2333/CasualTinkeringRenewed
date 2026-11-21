@@ -1,5 +1,7 @@
 package com.npstra.casualtinkering.modifiers;
 
+import com.npstra.casualtinkering.entity.ThrownBoomerang;
+import com.npstra.casualtinkering.init.ModEntities;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -22,8 +24,6 @@ import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import com.npstra.casualtinkering.entity.ThrownBoomerang;
-import com.npstra.casualtinkering.init.ModEntities;
 
 public class BoomerangModifier extends Modifier implements GeneralInteractionModifierHook, UsingToolModifierHook {
 

@@ -3,7 +3,6 @@ package com.npstra.casualtinkering.modifiers;
 import com.npstra.casualtinkering.CasualTinkering;
 import com.npstra.casualtinkering.util.MagicSwordHelper;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -51,7 +50,7 @@ public class MagicSwordAutoModifier extends Modifier implements InventoryTickMod
             float magicDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE) * (0.15f - (autoLevel - 1) * 0.025f);
             if (magicDamage > 0) {
                 MagicSwordHelper.spawnMagicSwords(level, player, nearest, 1, magicDamage);
-                ToolDamageUtil.damageAnimated(tool, 1, player, InteractionHand.MAIN_HAND);
+                ToolDamageUtil.damageAnimated(tool, 1, player);
             }
         }
     }

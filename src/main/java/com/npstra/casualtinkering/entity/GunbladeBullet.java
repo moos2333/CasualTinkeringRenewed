@@ -82,7 +82,7 @@ public class GunbladeBullet extends Projectile implements ToolProjectile {
         HitResult hit = ProjectileUtil.getHitResultOnMoveVector(this, e -> e != this.getOwner());
         if (hit.getType() != HitResult.Type.MISS) {
             if (hit.getType() == HitResult.Type.ENTITY) this.hitEntity(((EntityHitResult) hit).getEntity());
-            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_HIT, SoundSource.PLAYERS, 0.6F, 1.6F);
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.PLAYERS, 0.6F, 1.25F);
             this.discard();
             return;
         }

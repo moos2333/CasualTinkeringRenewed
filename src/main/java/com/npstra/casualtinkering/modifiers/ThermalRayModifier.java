@@ -149,7 +149,7 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
 
         float baseDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE);
         if (baseDamage <= 0) baseDamage = 1.0f;
-        float tempBonus = getFluidTemperatureBonus(tool);
+        float tempBonus = getFluidTemperatureBonus(fluid);
         float totalDamage = baseDamage * (BASE_DAMAGE_MULTIPLIER + tempBonus);
 
         Vec3 start = player.getEyePosition();
@@ -203,8 +203,7 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
         data.putInt(KEY_SHOTS, 0);
     }
 
-    private float getFluidTemperatureBonus(IToolStackView tool) {
-        FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
+    private float getFluidTemperatureBonus(FluidStack fluid) {
         if (fluid.isEmpty()) return 0.0f;
         int temp = fluid.getFluid().getFluidType().getTemperature();
         if (temp <= BASE_TEMP) return 0.0f;

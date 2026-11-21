@@ -69,7 +69,7 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
         float damage = tool.getStats().get(ToolStats.ATTACK_DAMAGE) * SHOT_DAMAGE_RATIO;
         float speed = ConditionalStatModifierHook.getModifiedStat(tool, player, ToolStats.VELOCITY) * BULLET_SPEED;
         level.addFreshEntity(new GunbladeBullet(level, player, stack, tool, damage, speed));
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 0.8F, 1.4F);
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 0.9F, 1.15F);
         if (level instanceof ServerLevel serverLevel) {
             Vec3 muzzle = player.getEyePosition().add(player.getLookAngle().scale(0.8));
             serverLevel.sendParticles(ParticleTypes.SMOKE, muzzle.x, muzzle.y, muzzle.z, 4, 0.05, 0.05, 0.05, 0.01);
@@ -80,7 +80,7 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
 
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {
-        if (context.isExtraAttack() || damage <= 0) return;
+        if (context.isProjectile() || context.isExtraAttack() || damage <= 0) return;
         ModDataNBT data = tool.getPersistentData();
         int charges = data.getInt(KEY_CHARGES);
         if (charges < getMaxCharges(modifier)) data.putInt(KEY_CHARGES, charges + 1);

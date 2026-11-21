@@ -33,9 +33,9 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
     private static final double COS_HALF_ANGLE = Math.cos(Math.toRadians(45.0));
     private static final ModifierId SWEEPING_EDGE_ID = new ModifierId("tconstruct", "sweeping_edge");
     private static final float RADIUS = 4.0f;
-    private static final float SWEEP_SPEED_MULTIPLIER = 2.0f;
-    private static final float SWEEP_DAMAGE_RATIO = 0.25f;
-    private static final float SECONDARY_BASE_RATIO = 0.50f;
+    private static final float SWEEP_SPEED_MULTIPLIER = 3.0f;
+    private static final float SWEEP_DAMAGE_RATIO = 0.20f;
+    private static final float SECONDARY_BASE_RATIO = 0.40f;
     private static final float SECONDARY_RATIO_PER_LEVEL = 0.15f;
 
     @Override
