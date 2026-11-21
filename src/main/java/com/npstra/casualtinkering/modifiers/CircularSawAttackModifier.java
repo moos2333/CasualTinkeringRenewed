@@ -30,7 +30,12 @@ import java.util.List;
 
 public class CircularSawAttackModifier extends Modifier implements GeneralInteractionModifierHook, UsingToolModifierHook {
 
-    private static final double COS_HALF_ANGLE = Math.cos(Math.toRadians(45.0));
+    private static final float[] SWEEP_COS_HALF_ANGLE = {
+            (float) Math.cos(Math.toRadians(45.0)),
+            (float) Math.cos(Math.toRadians(50.0)),
+            (float) Math.cos(Math.toRadians(55.0)),
+            (float) Math.cos(Math.toRadians(60.0))
+    };
     private static final ModifierId SWEEPING_EDGE_ID = new ModifierId("tconstruct", "sweeping_edge");
     private static final float RADIUS = 4.0f;
     private static final float SWEEP_SPEED_MULTIPLIER = 4.0f;
@@ -86,6 +91,8 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
         Vec3 eyePos = player.getEyePosition();
         Vec3 lookVec = player.getViewVector(1.0F);
         AABB area = new AABB(eyePos, eyePos).inflate(RADIUS);
+        int sweepingLevel = tool.getModifierLevel(SWEEPING_EDGE_ID);
+        double cosHalfAngle = SWEEP_COS_HALF_ANGLE[Math.min(sweepingLevel, SWEEP_COS_HALF_ANGLE.length - 1)];
 
         List<LivingEntity> targets = new ArrayList<>();
         LivingEntity primary = null;
@@ -93,7 +100,7 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
         for (LivingEntity target : level.getEntitiesOfClass(LivingEntity.class, area, e -> e != player && !(e instanceof Player))) {
             Vec3 toTarget = target.getBoundingBox().getCenter().subtract(eyePos);
             double distance = toTarget.length();
-            if (distance > RADIUS || distance < 0.5 || lookVec.dot(toTarget.normalize()) < COS_HALF_ANGLE) continue;
+            if (distance > RADIUS || distance < 0.5 || lookVec.dot(toTarget.normalize()) < cosHalfAngle) continue;
             targets.add(target);
             double distanceSq = target.distanceToSqr(player);
             if (distanceSq < nearest) {
@@ -114,7 +121,6 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
         float primaryDamage = oldHealth - primary.getHealth();
 
         if (primaryDamage > 0 && targets.size() > 1) {
-            int sweepingLevel = tool.getModifierLevel(SWEEPING_EDGE_ID);
             float secondaryDamage = primaryDamage * Math.min(SECONDARY_BASE_RATIO + SECONDARY_RATIO_PER_LEVEL * sweepingLevel, 1.0f);
             DamageSource source = player.damageSources().playerAttack(player);
             for (LivingEntity secondary : targets) {
