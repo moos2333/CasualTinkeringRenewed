@@ -24,7 +24,7 @@ Every tool uses the usual Tinkers' material system, so stats, traits and visuals
 - `thermal_ray` — heat ray beam (Heat Ray Gun)
 - `boomerang` — returning throw (Boomerang)
 - `triple_shot` — slotless triple shot (Throwing Knife)
-- `gunblade` — gunblade firing (Gunblade)
+- `gunblade` — gunshot (Gunblade)
 
 ## Requirements
 

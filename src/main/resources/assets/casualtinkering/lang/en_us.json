@@ -41,7 +41,7 @@
   "item.casualtinkering.heat_ray_gun.description": "A high-tech energy weapon that consumes hot fluids to fire a devastating beam.\nCharge up with right click – overheat after 10 shots.",
   "item.casualtinkering.gunblade": "Gunblade",
   "item.casualtinkering.gunblade.description": "An ancient weapon forged in one piece: a sword blade with a barrel running through its spine.\nRecovered only from the chests of ancient cities.",
-  "modifier.casualtinkering.gunblade": "Gunblade",
+  "modifier.casualtinkering.gunblade": "Gunshot",
   "modifier.casualtinkering.gunblade.flavor": "Cut first, shoot second",
   "modifier.casualtinkering.gunblade.description": "Melee hits load one round, up to 3. Right-click fires a loaded round as a fast projectile that carries the tool's traits, costing 1 durability.",
   "modifier.casualtinkering.gunblade.charges": "Loaded: %s / %s"
