@@ -6,8 +6,6 @@
     "handle": "casualtinkering:item/tool/gunblade/handle",
     "limb":   "casualtinkering:item/tool/gunblade/barrel"
   },
-  "modifier_maps": [ "tconstruct:sword" ],
-  "modifier_roots": [ "tconstruct:item/tool/sword/modifiers/" ],
   "parts": [
     { "name": "handle", "index": 1 },
     { "name": "head",   "index": 0 },
