@@ -13,6 +13,9 @@
     { "name": "head1",   "index": 2 },
     { "name": "head2",   "index": 3 }
   ],
+  "overrides": [
+    { "predicate": { "tconstruct:charging": 1 }, "model": "casualtinkering:item/tool/circular_saw/sawing" }
+  ],
   "display": {
     "thirdperson_righthand": {
       "rotation": [ 90, -90, 55 ],

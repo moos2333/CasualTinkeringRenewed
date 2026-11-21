@@ -1,7 +1,7 @@
 {
   "tool": "casualtinkering:gunblade",
   "text": [
-    { "text": "An ancient sword with a barrel through its spine. Melee hits load up to three rounds; right-click fires them as fast, trait-carrying projectiles." },
+    { "text": "An ancient weapon with a barrel in its blade. Melee hits load up to three rounds; right-click fires them as trait-carrying projectiles." },
     { "text": "Found only in ancient city chests. Cannot be built at a Tinker Station.", "paragraph": true }
   ],
   "properties": [

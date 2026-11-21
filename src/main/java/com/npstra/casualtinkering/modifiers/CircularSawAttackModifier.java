@@ -33,7 +33,7 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
     private static final double COS_HALF_ANGLE = Math.cos(Math.toRadians(45.0));
     private static final ModifierId SWEEPING_EDGE_ID = new ModifierId("tconstruct", "sweeping_edge");
     private static final float RADIUS = 4.0f;
-    private static final float SWEEP_SPEED_MULTIPLIER = 3.0f;
+    private static final float SWEEP_SPEED_MULTIPLIER = 4.0f;
     private static final float SWEEP_DAMAGE_RATIO = 0.20f;
     private static final float SECONDARY_BASE_RATIO = 0.40f;
     private static final float SECONDARY_RATIO_PER_LEVEL = 0.15f;
@@ -43,9 +43,9 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
         builder.addHook(this, ModifierHooks.GENERAL_INTERACT, ModifierHooks.TOOL_USING);
     }
 
-    private static int getSweepInterval(IToolStackView tool) {
-        float attackSpeed = Mth.clamp(tool.getStats().get(ToolStats.ATTACK_SPEED), 0.5f, 4.0f) * SWEEP_SPEED_MULTIPLIER;
-        return Math.max(1, (int) (20.0f / attackSpeed));
+    private static float getSweepInterval(IToolStackView tool) {
+        float attackSpeed = Mth.clamp(tool.getStats().get(ToolStats.ATTACK_SPEED), 0.5f, 2.5f) * SWEEP_SPEED_MULTIPLIER;
+        return Math.max(1.0f, 20.0f / attackSpeed);
     }
 
     @Override
@@ -71,7 +71,8 @@ public class CircularSawAttackModifier extends Modifier implements GeneralIntera
     public void onUsingTick(IToolStackView tool, ModifierEntry modifier, LivingEntity entity, int timeLeft) {
         if (entity.level().isClientSide || !(entity instanceof Player player)) return;
         int elapsed = getUseDuration(tool, modifier) - timeLeft - 1;
-        if (elapsed % getSweepInterval(tool) == 0) performSweepAttack(tool, player);
+        float interval = getSweepInterval(tool);
+        if ((int) (elapsed / interval) > (int) ((elapsed - 1) / interval)) performSweepAttack(tool, player);
     }
 
     @Override
