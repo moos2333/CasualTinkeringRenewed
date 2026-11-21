@@ -20,8 +20,9 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.entity.ThrownShuriken;
 
 public class TripleShotModifier extends Modifier implements ProjectileShootModifierHook {
-    public static final ResourceLocation SPREAD_DONE = ResourceLocation.tryBuild("casualtinkering", "triple_shot_spread_done");
+    private static final ResourceLocation SPREAD_DONE = ResourceLocation.tryBuild("casualtinkering", "triple_shot_spread_done");
     private static final float SPREAD_ANGLE = 15.0F;
+    private static final float[] SPREAD_OFFSETS = {-SPREAD_ANGLE, SPREAD_ANGLE};
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
@@ -33,15 +34,19 @@ public class TripleShotModifier extends Modifier implements ProjectileShootModif
         if (!primary || persistentData.getBoolean(SPREAD_DONE) || projectile.level().isClientSide) return;
         if (!(shooter instanceof Player player) || !player.isShiftKeyDown()) return;
         if (ammo.isEmpty() || !(projectile instanceof ThrownShuriken)) return;
-        ItemStack held = player.getMainHandItem().is(ammo.getItem()) ? player.getMainHandItem() : player.getOffhandItem();
-        if (!held.is(ammo.getItem()) || held.getCount() < 3) return;
+
+        ItemStack held = player.getMainHandItem();
+        if (!held.is(ammo.getItem()) || held.getCount() < 3) {
+            held = player.getOffhandItem();
+            if (!held.is(ammo.getItem()) || held.getCount() < 3) return;
+        }
 
         persistentData.putBoolean(SPREAD_DONE, true);
         if (!player.getAbilities().instabuild) held.shrink(2);
 
         Level level = projectile.level();
         float velocity = ConditionalStatModifierHook.getModifiedStat(tool, shooter, ToolStats.VELOCITY);
-        for (float offset : new float[]{-SPREAD_ANGLE, SPREAD_ANGLE}) {
+        for (float offset : SPREAD_OFFSETS) {
             ThrownShuriken knife = new ThrownShuriken(level, player);
             knife.onCreate(ammo, player);
             PersistentDataCapability.getOrWarn(knife).putBoolean(SPREAD_DONE, true);

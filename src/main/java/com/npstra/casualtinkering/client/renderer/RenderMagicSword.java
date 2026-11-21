@@ -11,17 +11,17 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class RenderMagicSword extends EntityRenderer<EntityMagicSword> {
+    private static final ItemStack RENDER_STACK = new ItemStack(Items.DIAMOND_SWORD);
+
     public RenderMagicSword(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Override
     public void render(EntityMagicSword entity, float yaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int light) {
-        ItemStack stack = entity.getRenderStack();
-        if (stack.isEmpty()) return;
-
         poseStack.pushPose();
         poseStack.translate(0, 0.5, 0);
 
@@ -35,7 +35,7 @@ public class RenderMagicSword extends EntityRenderer<EntityMagicSword> {
         poseStack.mulPose(Axis.XP.rotationDegrees(-pitch + 90));
         poseStack.mulPose(Axis.ZP.rotationDegrees(45));
 
-        Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.NONE, light, OverlayTexture.NO_OVERLAY, poseStack, buffer, entity.level(), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(RENDER_STACK, ItemDisplayContext.NONE, light, OverlayTexture.NO_OVERLAY, poseStack, buffer, entity.level(), 0);
         poseStack.popPose();
     }
 

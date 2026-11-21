@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -58,19 +59,9 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
         data.put(KEY_OVERHEAT_END, LongTag.valueOf(value));
     }
 
-    private int getChargeTicks(IToolStackView tool) {
+    private static int getChargeTicks(IToolStackView tool) {
         float attackSpeed = tool.getStats().get(ToolStats.ATTACK_SPEED);
-        if (attackSpeed >= 3.0f) return 20;
-        if (attackSpeed <= 0.5f) return 45;
-        float ticks;
-        if (attackSpeed >= 2.0f) {
-            ticks = 30 - (attackSpeed - 2.0f) * 10;
-        } else if (attackSpeed >= 1.0f) {
-            ticks = 40 - (attackSpeed - 1.0f) * 10;
-        } else {
-            ticks = 45 - (attackSpeed - 0.5f) * 10;
-        }
-        return Math.round(ticks);
+        return Mth.clamp(Math.round(45f - (attackSpeed - 0.5f) * 10f), 20, 45);
     }
 
     @Override
@@ -154,7 +145,7 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
             else ToolTankHelper.TANK_HELPER.setFluid(tool, fluid);
         }
 
-        ToolDamageUtil.damage(tool, 1, player, player.getMainHandItem());
+        ToolDamageUtil.damage(tool, 1, player, player.getUseItem());
 
         float baseDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE);
         if (baseDamage <= 0) baseDamage = 1.0f;

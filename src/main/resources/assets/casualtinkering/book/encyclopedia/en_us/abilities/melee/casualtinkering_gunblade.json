@@ -1,0 +1,13 @@
+{
+  "modifier_id": "casualtinkering:gunblade",
+  "text": [
+    {
+      "text": "Melee hits load one round into the barrel, up to three. Right-click fires a loaded round as a fast projectile that carries the tool's traits, costing one durability and a short cooldown."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Max 1 level",
+    "Built into the gunblade"
+  ]
+}
