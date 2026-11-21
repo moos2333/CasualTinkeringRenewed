@@ -8,8 +8,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -37,11 +39,19 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
     private static final ResourceLocation KEY_CHARGES = ResourceLocation.tryBuild("casualtinkering", "gunblade_charges");
     private static final int BASE_CHARGES = 3;
     private static final int COOLDOWN_TICKS = 10;
+    private static final float BASE_ATTACK_SPEED = 1.4F;
+    private static final float MIN_COOLDOWN_SPEED = 0.5F;
+    private static final float MAX_COOLDOWN_SPEED = 2.0F;
     private static final float SHOT_DAMAGE_RATIO = 0.5F;
     private static final float BULLET_SPEED = 3.0F;
 
     private static int getMaxCharges(ModifierEntry modifier) {
         return BASE_CHARGES + (int) modifier.getLevel() - 1;
+    }
+
+    private static int getCooldown(IToolStackView tool, LivingEntity holder) {
+        float speed = Mth.clamp(ConditionalStatModifierHook.getModifiedStat(tool, holder, ToolStats.ATTACK_SPEED), MIN_COOLDOWN_SPEED, MAX_COOLDOWN_SPEED);
+        return Math.max(1, Math.round(COOLDOWN_TICKS * BASE_ATTACK_SPEED / speed));
     }
 
     @Override
@@ -66,7 +76,7 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
         }
         Level level = player.level();
         ItemStack stack = player.getItemInHand(hand);
-        player.getCooldowns().addCooldown(stack.getItem(), COOLDOWN_TICKS);
+        player.getCooldowns().addCooldown(stack.getItem(), getCooldown(tool, player));
         if (level.isClientSide) return InteractionResult.SUCCESS;
 
         data.putInt(KEY_CHARGES, charges - 1);

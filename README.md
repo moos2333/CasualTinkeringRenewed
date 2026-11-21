@@ -13,7 +13,7 @@ Both source projects — the 1.12.2 *Casual Tinkering* addon and *Tinkers Gadget
 | **Boomerang** | Thrown weapon that returns to your hand, inheriting your tool's traits on the way out and back. |
 | **Magic Sword** | Four modifiers (base / control / auto / coop) that summon homing blades around your target. |
 | **Throwing Knife** | Data-driven shuriken with a built-in triple shot when sneaking. |
-| **Gunblade** | Ancient greatsword fused with a gun barrel. Fires high-velocity rounds that carry your tool's on-hit modifiers. Found in Ancient Cities. |
+| **Gunblade** | Ancient greatsword fused with a gun barrel. Hits a little harder than a greatsword and fires high-velocity rounds that carry your tool's on-hit modifiers; the firing cooldown shortens with attack speed. Found in Ancient Cities. |
 
 Every tool uses the usual Tinkers' material system, so stats, traits and visuals follow the parts you build them from. Full documentation lives in the in-game **Encyclopedia**.
 

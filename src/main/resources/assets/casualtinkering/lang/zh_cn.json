@@ -43,6 +43,6 @@
   "item.casualtinkering.gunblade.description": "一件整体铸造的远古兵器，刀刃的脊背中贯通着枪管。\n仅能从远古城市的箱子中发现。",
   "modifier.casualtinkering.gunblade": "铳击",
   "modifier.casualtinkering.gunblade.flavor": "先斩，后射",
-  "modifier.casualtinkering.gunblade.description": "近战命中装填1发弹药，上限3发。右键射出高速弹丸，继承工具特性，每次射击消耗1点耐久。",
+  "modifier.casualtinkering.gunblade.description": "近战命中装填1发弹药，上限3发。右键射出高速弹丸，继承工具特性，每次射击消耗1点耐久。射击冷却随攻速提升而缩短。",
   "modifier.casualtinkering.gunblade.charges": "装填：%s / %s"
 }

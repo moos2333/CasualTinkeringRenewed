@@ -5,7 +5,8 @@
     { "text": "Found only in ancient city chests. Cannot be built at a Tinker Station.", "paragraph": true }
   ],
   "properties": [
-    "+1.5 Attack Damage",
+    "+3.5 Attack Damage",
+    "110% Attack Multiplier",
     "1.4 Attack Speed",
     "Gunshot",
     "Silky Shears",
