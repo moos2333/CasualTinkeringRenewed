@@ -133,8 +133,8 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
         if (shots >= OVERHEAT_THRESHOLD) {
             setOverheated(data, level);
             if (level instanceof ServerLevel serverLevel) {
-                for (int i = 0; i < 8; i++)
-                    serverLevel.sendParticles(ParticleTypes.SMOKE, player.getX() + (level.random.nextDouble() - 0.5) * 1.0, player.getY() + level.random.nextDouble() * 1.5, player.getZ() + (level.random.nextDouble() - 0.5) * 1.0, 0, 0, 0.1, 0, 0.1);
+                serverLevel.sendParticles(ParticleTypes.SMOKE, player.getX(), player.getY() + 0.75, player.getZ(), 8, 0.5, 0.75, 0.5, 0.05);
+                serverLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 0.7f, 0.6f);
             }
         }
 

@@ -49,7 +49,7 @@ public class MagicSwordAutoModifier extends Modifier implements InventoryTickMod
         if (nearest != null) {
             float magicDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE) * (0.15f - (autoLevel - 1) * 0.025f);
             if (magicDamage > 0) {
-                MagicSwordHelper.spawnMagicSwords(level, player, nearest, 1, magicDamage);
+                MagicSwordHelper.spawnMagicSwords(level, player, tool, nearest, 1, magicDamage);
                 ToolDamageUtil.damageAnimated(tool, 1, player);
             }
         }

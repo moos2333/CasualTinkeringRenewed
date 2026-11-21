@@ -2,6 +2,9 @@ package com.npstra.casualtinkering.entity;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -11,6 +14,7 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
 
 public class EntityMagicSword extends Entity {
+    private static final EntityDataAccessor<String> MATERIAL = SynchedEntityData.defineId(EntityMagicSword.class, EntityDataSerializers.STRING);
     private static final int MAX_LIFE = 100;
     private static final double SPAWN_RADIUS = 2.0;
     private static final double LAUNCH_SPEED = 0.6;
@@ -26,11 +30,12 @@ public class EntityMagicSword extends Entity {
         this.setNoGravity(true);
     }
 
-    public EntityMagicSword(EntityType<? extends EntityMagicSword> type, Level level, LivingEntity shooter, LivingEntity target, float damage) {
+    public EntityMagicSword(EntityType<? extends EntityMagicSword> type, Level level, LivingEntity shooter, LivingEntity target, float damage, String material) {
         this(type, level);
         this.shooter = shooter;
         this.target = target;
         this.damage = damage;
+        this.entityData.set(MATERIAL, material);
 
         double angle = level.random.nextDouble() * Mth.TWO_PI;
         this.setPos(
@@ -71,12 +76,22 @@ public class EntityMagicSword extends Entity {
         target.invulnerableTime = invulnerableTime;
     }
 
-    @Override
-    protected void defineSynchedData() {}
+    public String getMaterial() {
+        return this.entityData.get(MATERIAL);
+    }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag tag) {}
+    protected void defineSynchedData() {
+        this.entityData.define(MATERIAL, "");
+    }
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag tag) {}
+    protected void readAdditionalSaveData(CompoundTag tag) {
+        this.entityData.set(MATERIAL, tag.getString("material"));
+    }
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) {
+        tag.putString("material", getMaterial());
+    }
 }

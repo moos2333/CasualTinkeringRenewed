@@ -67,7 +67,7 @@ public class MagicSwordControlModifier extends Modifier implements GeneralIntera
         LivingEntity target = findTarget(player, 8.0);
         if (target == null) return;
 
-        MagicSwordHelper.spawnMagicSwords(player.level(), player, target, level, magicDamage);
+        MagicSwordHelper.spawnMagicSwords(player.level(), player, tool, target, level, magicDamage);
         ToolDamageUtil.damageAnimated(tool, 1, player, player.getUsedItemHand());
     }
 

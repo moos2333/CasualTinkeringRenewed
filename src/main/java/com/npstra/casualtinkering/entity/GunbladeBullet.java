@@ -6,7 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -74,7 +73,10 @@ public class GunbladeBullet extends Projectile implements ToolProjectile {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) return;
+        if (this.level().isClientSide) {
+            this.level().addParticle(ParticleTypes.CRIT, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            return;
+        }
         if (this.life++ > MAX_LIFE) {
             this.discard();
             return;
@@ -89,9 +91,6 @@ public class GunbladeBullet extends Projectile implements ToolProjectile {
         Vec3 movement = this.getDeltaMovement();
         this.setPos(this.getX() + movement.x, this.getY() + movement.y, this.getZ() + movement.z);
         this.setDeltaMovement(movement.scale(DRAG));
-        if (this.level() instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(ParticleTypes.CRIT, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0);
-        }
     }
 
     private void hitEntity(Entity target) {
