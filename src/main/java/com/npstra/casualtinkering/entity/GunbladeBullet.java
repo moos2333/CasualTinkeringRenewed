@@ -80,7 +80,7 @@ public class GunbladeBullet extends Projectile {
     }
 
     private void hitEntity(Entity target) {
-        if (!(this.getOwner() instanceof Player player)) {
+        if (!(this.getOwner() instanceof Player player) || this.toolStack.isEmpty()) {
             target.hurt(this.damageSources().thrown(this, this.getOwner()), this.damage);
             return;
         }

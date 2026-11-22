@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1
+
+- Gunblade chamber is now opened with sneak-use via the stock Tinkers GUI, reusing the quiver inventory screen.
+- The chamber now accepts arrows in addition to Tinkers throwables (#minecraft:arrows and #tconstruct:throwable); arrows are fired at full bow charge.
+- Removed the old sneak-use load/eject hand swap.
+
 ## 1.5.0
 
 - Gunblade: added a 1-slot chamber. Hold any throwable in the offhand and sneak-use the gunblade to load it; loaded projectiles are thrown directly on fire, with a slightly longer cooldown. With an empty chamber the gunblade falls back to its own bullets (3 charges, reloaded by melee hits).
