@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3
+
+- Fixed an issue that prevented the Gunblade from generating in ancient city chests.
+
 ## 1.5.2
 
 - Heat Ray Gun: Diamond, Netherite, Sharpness, Reinforced, Overforced, Unbreakable and Experienced overlays.
