@@ -10,5 +10,6 @@
     { "name": "handle", "index": 1 },
     { "name": "head",   "index": 0 },
     { "name": "limb",   "index": 2 }
-  ]
+  ],
+  "modifier_maps": [ "casualtinkering:gunblade" ]
 }

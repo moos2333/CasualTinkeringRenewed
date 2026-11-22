@@ -11,6 +11,7 @@
     { "name": "head",   "index": 0 },
     { "name": "limb",   "index": 2 }
   ],
+  "modifier_maps": [ "casualtinkering:gunblade" ],
   "overrides": [
     { "predicate": { "tconstruct:broken": 1 }, "model": "casualtinkering:item/tool/gunblade/broken" }
   ]
