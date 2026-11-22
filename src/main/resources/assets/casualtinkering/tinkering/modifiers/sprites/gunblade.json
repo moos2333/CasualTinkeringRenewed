@@ -12,6 +12,8 @@
     "tconstruct:fiery": {
       "luminosity": 10,
       "texture": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_fiery"
-    }
+    },
+    "tconstruct:emerald": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_emerald",
+    "tconstruct:experienced": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_experienced"
   }
 }

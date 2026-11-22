@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2
+
+- Heat Ray Gun: Diamond, Netherite, Sharpness, Reinforced, Overforced, Unbreakable and Experienced overlays.
+- Gunblade: Emerald and Experienced overlays.
+- Circular Saw and Boomerang: Experienced overlay.
+
 ## 1.5.1
 
 - Gunblade chamber is now opened with sneak-use via the stock Tinkers GUI, reusing the quiver inventory screen.

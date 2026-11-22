@@ -10,6 +10,7 @@
     "tconstruct:emerald": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_emerald",
     "tconstruct:haste": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_haste",
     "tconstruct:netherite": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_netherite",
-    "tconstruct:fiery": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_fiery"
+    "tconstruct:fiery": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_fiery",
+    "tconstruct:experienced": "casualtinkering:item/tool/circular_saw/modifiers/tconstruct_experienced"
   }
 }

@@ -14,6 +14,7 @@
     },
     "tconstruct:emerald": "casualtinkering:item/tool/boomerang/modifiers/tconstruct_emerald",
     "tconstruct:cooling": "casualtinkering:item/tool/boomerang/modifiers/tconstruct_cooling",
-    "tconstruct:bane_of_sssss": "casualtinkering:item/tool/boomerang/modifiers/tconstruct_bane_of_sssss"
+    "tconstruct:bane_of_sssss": "casualtinkering:item/tool/boomerang/modifiers/tconstruct_bane_of_sssss",
+    "tconstruct:experienced": "casualtinkering:item/tool/boomerang/modifiers/tconstruct_experienced"
   }
 }
