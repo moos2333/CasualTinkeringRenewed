@@ -74,11 +74,17 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
     }
 
     private static ItemStack getChamberAmmo(IToolStackView tool, ModifierEntry modifier) {
-        return tool.getHook(ToolInventoryCapability.HOOK).getStack(tool, modifier, 0);
+        return modifier.getHook(ToolInventoryCapability.HOOK).getStack(tool, modifier, 0);
     }
 
     private static void setChamberAmmo(IToolStackView tool, ModifierEntry modifier, ItemStack stack) {
-        tool.getHook(ToolInventoryCapability.HOOK).setStack(tool, modifier, 0, stack);
+        modifier.getHook(ToolInventoryCapability.HOOK).setStack(tool, modifier, 0, stack);
+    }
+
+    private static void ensureChamber(IToolStackView tool) {
+        if (tool.getVolatileData().getInt(ToolInventoryCapability.TOTAL_SLOTS) == 0 && tool instanceof ToolStack toolStack) {
+            toolStack.rebuildStats();
+        }
     }
 
     @Override
@@ -96,6 +102,7 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
 
     @Override
     public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source) {
+        ensureChamber(tool);
         if (source != InteractionSource.RIGHT_CLICK || tool.isBroken()) return InteractionResult.PASS;
         ModDataNBT data = tool.getPersistentData();
         ItemStack gunblade = player.getItemInHand(hand);
@@ -111,7 +118,6 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
         return fire(player.level(), player, hand, gunblade, tool, modifier, data, data.getInt(KEY_CHARGES), ammo);
     }
 
-    /** 发射：ammo 为空时消耗 1 装填并射出枪刃弹丸，否则将弹舱弹药本体掷出（消耗 1 枚）。 */
     private InteractionResult fire(Level level, Player player, InteractionHand hand, ItemStack gunblade,
                                    IToolStackView tool, ModifierEntry modifier, ModDataNBT data, int newCharges, ItemStack ammo) {
         int cooldown = getCooldown(tool, player);
@@ -141,7 +147,6 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
         return InteractionResult.SUCCESS;
     }
 
-    /** 将弹舱弹药本体掷出：箭矢走官方 createArrow 满蓄力，蓄力型工具按官方满蓄力投掷，其余走物品原生 use。返回是否实际掷出。 */
     private boolean throwChamberAmmo(Level level, Player player, InteractionHand hand, ItemStack ammo) {
         ItemStack stack = ammo.copyWithCount(1);
         if (stack.getItem() instanceof ArrowItem arrow) {
@@ -191,6 +196,7 @@ public class GunbladeModifier extends Modifier implements GeneralInteractionModi
 
     @Override
     public void addTooltip(IToolStackView tool, ModifierEntry modifier, Player player, List<Component> tooltip, TooltipKey key, TooltipFlag flag) {
+        ensureChamber(tool);
         ModDataNBT data = tool.getPersistentData();
         int charges = data.getInt(KEY_CHARGES);
         tooltip.add(Component.translatable("modifier.casualtinkering.gunblade.charges", charges, getMaxCharges(modifier)).withStyle(ChatFormatting.GRAY));
