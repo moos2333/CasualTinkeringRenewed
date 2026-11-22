@@ -20,9 +20,8 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
-import slimeknights.tconstruct.tools.entity.ToolProjectile;
 
-public class GunbladeBullet extends Projectile implements ToolProjectile {
+public class GunbladeBullet extends Projectile {
     private static final int MAX_LIFE = 20;
     private static final float DRAG = 0.99F;
 
@@ -56,11 +55,6 @@ public class GunbladeBullet extends Projectile implements ToolProjectile {
 
     @Override
     protected void defineSynchedData() {}
-
-    @Override
-    public ItemStack getDisplayTool() {
-        return ItemStack.EMPTY;
-    }
 
     @Override
     public void tick() {

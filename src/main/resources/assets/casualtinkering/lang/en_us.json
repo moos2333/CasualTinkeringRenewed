@@ -43,6 +43,9 @@
   "item.casualtinkering.gunblade.description": "An ancient weapon forged in one piece: a sword blade with a barrel running through its spine.\nRecovered only from the chests of ancient cities.",
   "modifier.casualtinkering.gunblade": "Gunshot",
   "modifier.casualtinkering.gunblade.flavor": "Cut first, shoot second",
-  "modifier.casualtinkering.gunblade.description": "Melee hits load one round, up to 3. Right-click fires a loaded round as a fast projectile that carries the tool's traits, costing 1 durability. Higher attack speed shortens the cooldown.",
-  "modifier.casualtinkering.gunblade.charges": "Loaded: %s / %s"
+  "modifier.casualtinkering.gunblade.description": "Melee hits load 1 bullet, up to 3. Right-click fires fast bullets inheriting tool traits; each shot costs 1 durability. Has a 1-slot chamber for Tinkers throwables: throws the projectile itself when loaded. Sneak-use to load/eject.",
+  "modifier.casualtinkering.gunblade.charges": "Loaded: %s / %s",
+  "modifier.casualtinkering.gunblade.chamber": "Chamber: %s",
+  "modifier.casualtinkering.gunblade.chamber.empty": "Empty",
+  "modifier.casualtinkering.gunblade.chamber.hint": "Sneak-use to load/eject a projectile"
 }

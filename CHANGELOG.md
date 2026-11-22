@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.0
+
+- Gunblade: added a 1-slot chamber. Hold any throwable in the offhand and sneak-use the gunblade to load it; loaded projectiles are thrown directly on fire, with a slightly longer cooldown. With an empty chamber the gunblade falls back to its own bullets (3 charges, reloaded by melee hits).
+- Throwables are detected through `#tconstruct:throwable`, so throwable items from other mods work in the chamber.
+- Gunblade upgrade slots 2 -> 3, durability multiplier 50% -> 55%.
+- Fixed the gunblade not firing on right-click.
+- Circular Saw: 11 modifier overlays (Diamond, Netherite, Sharpness, Emerald, Haste, Luck, Fiery, Necrotic, Reinforced, Overforced, Unbreakable).
+- Heat Ray Gun: 4 modifier overlays (Emerald, Fiery, Luck, Necrotic).
+- Throwing Knife now shows its material name.
+
 ## 1.4.7
 
 New: the Gunblade and the Boomerang now show drawn modifier overlays on the tool model instead of a bare icon in the slot.

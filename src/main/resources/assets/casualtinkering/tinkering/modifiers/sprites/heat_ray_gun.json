@@ -1,0 +1,8 @@
+{
+  "modifiers": {
+    "tconstruct:emerald": "casualtinkering:item/tool/heat_ray_gun/modifiers/tconstruct_emerald",
+    "tconstruct:fiery": "casualtinkering:item/tool/heat_ray_gun/modifiers/tconstruct_fiery",
+    "tconstruct:luck": "casualtinkering:item/tool/heat_ray_gun/modifiers/tconstruct_luck",
+    "tconstruct:necrotic": "casualtinkering:item/tool/heat_ray_gun/modifiers/tconstruct_necrotic"
+  }
+}
