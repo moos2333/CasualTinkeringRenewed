@@ -9,6 +9,9 @@
     "tconstruct:luck": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_luck",
     "tconstruct:severing": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_severing",
     "tconstruct:necrotic": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_necrotic",
-    "tconstruct:fiery": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_fiery"
+    "tconstruct:fiery": {
+      "luminosity": 10,
+      "texture": "casualtinkering:item/tool/gunblade/modifiers/tconstruct_fiery"
+    }
   }
 }

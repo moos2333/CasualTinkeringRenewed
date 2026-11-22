@@ -11,4 +11,5 @@ New: the Gunblade and the Boomerang now show drawn modifier overlays on the tool
 
 **Notes**
 - Overlays share each tool's UV layout, so they follow the material colours of the parts you build.
+- Fiery emits light (luminosity 10), matching Tinkers' own tool sprites.
 - Modifiers without an overlay still apply normally, they just draw no sprite.
