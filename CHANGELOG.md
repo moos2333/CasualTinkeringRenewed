@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.4
+
+- Added optional Epic Fight compatibility through datapack files; the Gunblade, Circular Saw, Heat Ray Gun and Boomerang use sword, axe, one-handed tool and dagger templates respectively, with the Boomerang keeping sword-length reach.
+- Corrected and standardized the encyclopedia entries for all tools.
+
 ## 1.5.3
 
 - Fixed an issue that prevented the Gunblade from generating in ancient city chests.
