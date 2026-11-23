@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.9
+
+- Heat Ray Gun now requires fluid at 400K or above; lava and blazing blood deal full damage and ignite targets.
+- Other hot fluids deal half damage and apply their own fluid effects on impact.
+- Rebalanced Heat Ray damage around a temperature-based multiplier capped at 10x.
+
 ## 1.5.8
 
 - Circular Saw no longer flickers between sawing and idle in third person.
