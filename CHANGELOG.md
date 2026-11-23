@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.6
+
+- The Throwing Knife parts now use the standard Tinkers greyscale palette, and all 92 material variants were regenerated from the updated textures.
+
 ## 1.5.5
 
 - The Gunblade barrel trait can now be upgraded by the Rebalanced modifier, matching other ancient tools.
