@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.5.8
+
+- Circular Saw no longer flickers between sawing and idle in third person.
+- Circular Saw reach in Better Combat raised to 3.
+
+## 1.5.7
+
+- Throwing Knife projectile damage and velocity raised to 1.25.
+- The Magic Sword Coop modifier no longer triggers from projectile hits.
+- Circular Saw sweep ignores taps shorter than one sweep interval.
+- Triple Shot can now be salvaged.
+- Boomerang charge time now scales continuously with attack speed.
+
 ## 1.5.6
 
 - Broken textures for the Circular Saw, Heat Ray Gun and Boomerang.

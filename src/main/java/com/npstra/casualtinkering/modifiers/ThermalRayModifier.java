@@ -132,6 +132,9 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
 
     private void executeShot(IToolStackView tool, Player player) {
         Level level = player.level();
+        FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
+        if (fluid.isEmpty() || fluid.getAmount() < FLUID_COST_MB) return;
+
         ModDataNBT data = tool.getPersistentData();
         int shots = data.getInt(KEY_SHOTS) + 1;
         data.putInt(KEY_SHOTS, shots);
@@ -143,12 +146,9 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
             }
         }
 
-        FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
-        if (!fluid.isEmpty() && fluid.getAmount() >= FLUID_COST_MB) {
-            fluid.shrink(FLUID_COST_MB);
-            if (fluid.isEmpty()) ToolTankHelper.TANK_HELPER.setFluid(tool, FluidStack.EMPTY);
-            else ToolTankHelper.TANK_HELPER.setFluid(tool, fluid);
-        }
+        fluid.shrink(FLUID_COST_MB);
+        if (fluid.isEmpty()) ToolTankHelper.TANK_HELPER.setFluid(tool, FluidStack.EMPTY);
+        else ToolTankHelper.TANK_HELPER.setFluid(tool, fluid);
 
         ToolDamageUtil.damage(tool, 1, player, player.getUseItem());
 

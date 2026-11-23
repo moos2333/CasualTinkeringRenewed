@@ -118,7 +118,7 @@ public class ThrownBoomerang extends Projectile implements ToolProjectile {
         this.setPos(this.getX() + movement.x, this.getY() + movement.y, this.getZ() + movement.z);
         this.updateRotation();
         this.setDeltaMovement(movement.scale(this.isInWater() ? WATER_INERTIA : 0.99f));
-        if (!this.tasks.isEmpty()) {
+        if (!this.tasks.isEmpty() && this.tool != null) {
             ScheduledProjectileTaskModifierHook.checkSchedule(this.tool, this.toolStack, this, null, this.tasks);
         }
     }
