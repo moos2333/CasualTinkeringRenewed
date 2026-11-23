@@ -1,13 +1,18 @@
 {
   "tool": "casualtinkering:circular_saw",
   "text": [
-    { "text": "The Circular Saw is a hand axe that doubles as a melee weapon. Right-click to charge a spinning attack that slices enemies in a cone." },
-    { "text": "Attack speed determines cutting frequency. Sawing is built in.", "paragraph": true }
+    {
+      "text": "The Circular Saw is a hand axe that doubles as a melee weapon. Right-click to charge a spinning attack that slices enemies in a cone."
+    },
+    {
+      "text": "Attack speed determines cutting frequency. Sawing is built in.",
+      "paragraph": true
+    }
   ],
   "properties": [
-    "+4.5 Attack Damage",
-    "140% Attack Multiplier",
-    "0.95 Attack Speed",
+    "+3.5 Attack Damage",
+    "120% Attack Multiplier",
+    "1.15 Attack Speed",
     "200% Durability Multiplier",
     "Sawing I",
     "Padded II",

@@ -2,9 +2,9 @@
 
 ## 1.5.9
 
-- Heat Ray Gun now requires fluid at 400K or above; lava and blazing blood deal full damage and ignite targets.
-- Other hot fluids deal half damage and apply their own fluid effects on impact.
-- Rebalanced Heat Ray damage around a temperature-based multiplier capped at 10x.
+- Heat Ray Gun fuel tiers: lava and blazing blood deal full damage, other hot fluids deal half damage and apply their fluid effects, fluids below 400K cannot fire.
+- Circular Saw rebalanced as a faster, lighter heavy tool.
+- Removing the Gunblade modifier now refunds its ability slots.
 
 ## 1.5.8
 

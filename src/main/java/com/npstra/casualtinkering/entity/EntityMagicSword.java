@@ -72,8 +72,11 @@ public class EntityMagicSword extends Entity {
         LivingEntity target = this.target;
         int invulnerableTime = target.invulnerableTime;
         target.invulnerableTime = 0;
-        target.hurt(source, this.damage);
-        target.invulnerableTime = invulnerableTime;
+        try {
+            target.hurt(source, this.damage);
+        } finally {
+            target.invulnerableTime = invulnerableTime;
+        }
     }
 
     public String getMaterial() {

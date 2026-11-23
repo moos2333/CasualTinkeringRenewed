@@ -197,8 +197,9 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
             } else if (!level.isClientSide) {
                 FluidEffects effects = FluidEffectManager.INSTANCE.find(effectFluid.getFluid());
                 if (effects.hasEntityEffects()) {
+                    int dose = Math.min(effects.getAmount(effectFluid.getFluid()), FLUID_COST_MB);
                     FluidEffectContext.Entity context = FluidEffectContext.builder(level).user(player).stack(player.getMainHandItem()).target(target);
-                    effects.applyToEntity(effectFluid, FLUID_COST_MB, context, IFluidHandler.FluidAction.EXECUTE);
+                    effects.applyToEntity(new FluidStack(effectFluid.getFluid(), dose), dose, context, IFluidHandler.FluidAction.EXECUTE);
                 }
             }
         }
@@ -206,7 +207,7 @@ public class ThermalRayModifier extends Modifier implements GeneralInteractionMo
         if (level instanceof ServerLevel serverLevel) {
             serverLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLAZE_SHOOT, SoundSource.PLAYERS, 1.0f, 1.0f);
             double distance = start.distanceTo(end);
-            int steps = (int) (distance * 0.5);
+            int steps = Math.max(1, (int) (distance * 0.5));
             for (int i = 0; i <= steps; i++) {
                 Vec3 pos = start.add(look.scale(distance * i / steps));
                 serverLevel.sendParticles(ParticleTypes.FLAME, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0);
