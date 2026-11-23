@@ -7,15 +7,15 @@ import com.npstra.casualtinkering.client.renderer.ThrownBoomerangRenderer;
 import com.npstra.casualtinkering.init.ModEntities;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
-import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 
 @Mod.EventBusSubscriber(modid = CasualTinkering.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEvents {
@@ -32,8 +32,14 @@ public class ClientEvents {
             Item saw = ForgeRegistries.ITEMS.getValue(new ResourceLocation(CasualTinkering.MODID, "circular_saw"));
             if (saw != null) {
                 ItemProperties.register(saw, new ResourceLocation(CasualTinkering.MODID, "sawing"),
-                        (stack, level, entity, seed) -> ModifierUtil.checkPersistentPresent(stack, GeneralInteractionModifierHook.KEY_ACTIVE_MODIFIER) ? 1.0F : 0.0F);
+                        (stack, level, entity, seed) -> isSawing(saw, entity) ? 1.0F : 0.0F);
             }
         });
+    }
+
+    private static boolean isSawing(Item saw, LivingEntity entity) {
+        if (entity == null || !entity.isUsingItem()) return false;
+        ItemStack used = entity.getUseItem();
+        return used.isEmpty() || used.getItem() == saw;
     }
 }
