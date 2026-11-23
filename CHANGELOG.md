@@ -2,7 +2,8 @@
 
 ## 1.5.6
 
-- The Throwing Knife parts now use the standard Tinkers greyscale palette, and all 92 material variants were regenerated from the updated textures.
+- Broken textures for the Circular Saw, Heat Ray Gun and Boomerang.
+- Refined Throwing Knife material textures.
 
 ## 1.5.5
 
