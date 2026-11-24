@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 public class EntityMagicSword extends Entity {
     private static final EntityDataAccessor<String> MATERIAL = SynchedEntityData.defineId(EntityMagicSword.class, EntityDataSerializers.STRING);
@@ -63,7 +64,10 @@ public class EntityMagicSword extends Entity {
             this.discard();
             return;
         }
-        this.setDeltaMovement(this.target.position().subtract(this.position()).normalize().scale(CHASE_SPEED));
+        Vec3 toTarget = this.target.position().subtract(this.position());
+        if (toTarget.lengthSqr() > 1.0E-4) {
+            this.setDeltaMovement(toTarget.normalize().scale(CHASE_SPEED));
+        }
         this.move(MoverType.SELF, this.getDeltaMovement());
     }
 

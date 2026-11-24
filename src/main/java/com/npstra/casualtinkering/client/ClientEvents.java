@@ -29,9 +29,9 @@ public class ClientEvents {
     @SubscribeEvent
     public static void registerItemProperties(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            Item saw = ForgeRegistries.ITEMS.getValue(new ResourceLocation(CasualTinkering.MODID, "circular_saw"));
+            Item saw = ForgeRegistries.ITEMS.getValue(ResourceLocation.tryBuild(CasualTinkering.MODID, "circular_saw"));
             if (saw != null) {
-                ItemProperties.register(saw, new ResourceLocation(CasualTinkering.MODID, "sawing"),
+                ItemProperties.register(saw, ResourceLocation.tryBuild(CasualTinkering.MODID, "sawing"),
                         (stack, level, entity, seed) -> isSawing(saw, entity) ? 1.0F : 0.0F);
             }
         });

@@ -47,5 +47,22 @@
   "modifier.casualtinkering.gunblade.charges": "装填：%s / %s",
   "modifier.casualtinkering.gunblade.chamber": "弹舱：%s",
   "modifier.casualtinkering.gunblade.chamber.empty": "空",
-  "modifier.casualtinkering.gunblade.chamber.hint": "潜行右键打开弹舱"
+  "modifier.casualtinkering.gunblade.chamber.hint": "潜行右键打开弹舱",
+  "modifier.casualtinkering.sniping": "狙击",
+  "modifier.casualtinkering.sniping.flavor": "百步穿杨",
+  "modifier.casualtinkering.sniping.description": "每级按命中距离提升伤害，每格+1%，最多计算10格",
+  "material.casualtinkering.quartziron": "石英铁",
+  "material.casualtinkering.quartziron.encyclopedia": "命中距离每格伤害+1%，最多10格。",
+  "material.casualtinkering.quartziron.flavor": "铁的身子，石英的心。",
+  "item.casualtinkering.quartziron_ingot": "石英铁锭",
+  "item.casualtinkering.verdant_steel_ingot": "绿茵钢锭",
+  "fluid.casualtinkering.molten_verdant_steel": "熔融绿茵钢",
+  "modifier.casualtinkering.oversiphon": "黏液汲取",
+  "modifier.casualtinkering.oversiphon.flavor": "经验也是一种黏液",
+  "modifier.casualtinkering.oversiphon.description": "每级吸收经验球转化为黏液覆层，每个经验球按其价值折算，单次上限2+等级点，冷却5秒",
+  "material.casualtinkering.verdant_steel": "绿茵钢",
+  "material.casualtinkering.verdant_steel.encyclopedia": "拾取经验球转化为黏液覆层：每个球回复其面值一半（向上取整），单次最多2+等级点，冷却5秒。",
+  "material.casualtinkering.verdant_steel.flavor": "铜绿、草绿、黏液绿，反正都是绿。",
+  "item.casualtinkering.molten_verdant_steel_bucket": "熔融绿茵钢桶",
+  "block.casualtinkering.molten_verdant_steel": "熔融绿茵钢"
 }

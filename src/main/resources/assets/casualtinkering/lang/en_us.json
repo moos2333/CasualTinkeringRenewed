@@ -47,5 +47,22 @@
   "modifier.casualtinkering.gunblade.charges": "Loaded: %s / %s",
   "modifier.casualtinkering.gunblade.chamber": "Chamber: %s",
   "modifier.casualtinkering.gunblade.chamber.empty": "Empty",
-  "modifier.casualtinkering.gunblade.chamber.hint": "Sneak-use to open the chamber"
+  "modifier.casualtinkering.gunblade.chamber.hint": "Sneak-use to open the chamber",
+  "modifier.casualtinkering.sniping": "Sniping",
+  "modifier.casualtinkering.sniping.flavor": "Dead center",
+  "modifier.casualtinkering.sniping.description": "Deals bonus damage based on hit distance, +1% per block up to 10 blocks.",
+  "material.casualtinkering.quartziron": "Quartziron",
+  "material.casualtinkering.quartziron.encyclopedia": "+1% damage per block of distance, up to 10 blocks.",
+  "material.casualtinkering.quartziron.flavor": "An iron body with a quartz heart.",
+  "item.casualtinkering.quartziron_ingot": "Quartziron Ingot",
+  "item.casualtinkering.verdant_steel_ingot": "Verdant Steel Ingot",
+  "fluid.casualtinkering.molten_verdant_steel": "Molten Verdant Steel",
+  "modifier.casualtinkering.oversiphon": "Oversiphon",
+  "modifier.casualtinkering.oversiphon.flavor": "Experience is just another kind of slime",
+  "modifier.casualtinkering.oversiphon.description": "Each level siphons experience orbs into overslime. Orbs are converted by value, up to 2+level points at once, with a 5 second cooldown.",
+  "material.casualtinkering.verdant_steel": "Verdant Steel",
+  "material.casualtinkering.verdant_steel.encyclopedia": "Siphons picked-up experience orbs into overslime: each orb restores half its value rounded up, up to 2+level points before a 5 second cooldown.",
+  "material.casualtinkering.verdant_steel.flavor": "Copper green, grass green, slime green. Green all the same.",
+  "item.casualtinkering.molten_verdant_steel_bucket": "Molten Verdant Steel Bucket",
+  "block.casualtinkering.molten_verdant_steel": "Molten Verdant Steel"
 }
