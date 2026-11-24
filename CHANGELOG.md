@@ -2,7 +2,7 @@
 
 ## 1.6.1
 
-- Quartziron now supports armour plating, with the new Concealment trait: incoming damage is reduced by 0.5% per block of distance from the attacker, up to 5% per level.
+- Quartziron now supports armour plating and chainmail, with the new Concealment trait: incoming damage is reduced by 0.5% per block of distance from the attacker, up to 5% per level.
 - Fixed the Sniping trait dealing no distance bonus damage in melee while knocking targets back much harder than intended.
 - The Molten Verdant Steel page in the encyclopedia now has its own description and lists its effects in the same wording as the other slime alloys.
 
