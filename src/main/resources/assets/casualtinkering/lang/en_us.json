@@ -64,5 +64,5 @@
   "material.casualtinkering.verdant_steel.encyclopedia": "Siphons picked-up experience orbs into overslime: each orb restores half its value rounded up, up to 2+level points before a 5 second cooldown.",
   "material.casualtinkering.verdant_steel.flavor": "Copper green, grass green, slime green. Green all the same.",
   "item.casualtinkering.molten_verdant_steel_bucket": "Molten Verdant Steel Bucket",
-  "block.casualtinkering.molten_verdant_steel": "Molten Verdant Steel"
+  "block.casualtinkering.molten_verdant_steel_fluid": "Molten Verdant Steel"
 }

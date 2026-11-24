@@ -4,7 +4,7 @@
 
 - New tier 3 material: Quartziron. Cast molten quartz over iron parts, or molten iron over quartz; it covers arrow heads but not arrow shafts. Its Sniping trait adds damage with hit distance.
 - New tier 3 material: Verdant Steel. Alloy molten copper with earth slime and molten clay. It ignores the usual overslime penalties, and its Oversiphon trait turns picked up experience into overslime.
-- Both materials come with their own ingots, and Molten Verdant Steel can be poured: it burns anything standing in it and clings like slime.
+- Both materials come with their own ingots, and Molten Verdant Steel can be poured: it clings like slime and sets off small explosions that break no blocks and set nothing on fire. Verdant Steel also works as armour chainmail.
 
 ## 1.5.9
 

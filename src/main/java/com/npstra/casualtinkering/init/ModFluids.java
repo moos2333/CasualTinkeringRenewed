@@ -17,7 +17,7 @@ public class ModFluids {
             .descriptionId("fluid.casualtinkering.molten_verdant_steel")
             .temperature(800).density(3000).viscosity(6000).lightLevel(10)
             .motionScale(0.1)))
-        .burningBlock(MapColor.COLOR_GREEN, 10, 4, 3.0F)
+        .block(fluid -> new VerdantSteelLiquidBlock(fluid, FluidDeferredRegister.createProperties(MapColor.COLOR_GREEN, 10)))
         .bucket()
         .flowing();
 

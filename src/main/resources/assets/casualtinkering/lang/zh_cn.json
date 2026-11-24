@@ -64,5 +64,5 @@
   "material.casualtinkering.verdant_steel.encyclopedia": "拾取经验球转化为黏液覆层：每个球回复其面值一半（向上取整），单次最多2+等级点，冷却5秒。",
   "material.casualtinkering.verdant_steel.flavor": "铜绿、草绿、黏液绿，反正都是绿。",
   "item.casualtinkering.molten_verdant_steel_bucket": "熔融绿茵钢桶",
-  "block.casualtinkering.molten_verdant_steel": "熔融绿茵钢"
+  "block.casualtinkering.molten_verdant_steel_fluid": "熔融绿茵钢"
 }
