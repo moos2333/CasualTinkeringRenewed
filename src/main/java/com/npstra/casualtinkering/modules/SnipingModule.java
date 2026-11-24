@@ -13,7 +13,7 @@ import slimeknights.tconstruct.library.json.LevelingValue;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.entity.ProjectileWithPower;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.module.HookProvider;
@@ -23,8 +23,8 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 
-public record SnipingModule(LevelingValue bonus, int maxDistance) implements ModifierModule, ProjectileHitModifierHook, MeleeHitModifierHook {
-    private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.defaultHooks(ModifierHooks.PROJECTILE_HIT, ModifierHooks.MELEE_HIT);
+public record SnipingModule(LevelingValue bonus, int maxDistance) implements ModifierModule, ProjectileHitModifierHook, MeleeDamageModifierHook {
+    private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.defaultHooks(ModifierHooks.PROJECTILE_HIT, ModifierHooks.MELEE_DAMAGE);
     private static final ResourceLocation BASE_VALUE = ResourceLocation.tryBuild("casualtinkering", "sniping_base");
 
     public static final RecordLoadable<SnipingModule> LOADER = RecordLoadable.create(
@@ -72,7 +72,7 @@ public record SnipingModule(LevelingValue bonus, int maxDistance) implements Mod
     }
 
     @Override
-    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         if (context.isProjectile()) return damage;
         LivingEntity attacker = context.getAttacker();
         LivingEntity target = context.getLivingTarget();
