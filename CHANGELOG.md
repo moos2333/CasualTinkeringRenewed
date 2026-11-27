@@ -1,8 +1,11 @@
 # Changelog
 
-## 1.6.2
+## 1.6.3
 
 - Quartziron is now classified as a heavy ranged material, so its ranged traits and encyclopedia entry work as intended.
+
+## 1.6.2
+
 - Fixed thrown boomerangs losing their damage and knockback when the game is saved and reloaded.
 
 ## 1.6.1
