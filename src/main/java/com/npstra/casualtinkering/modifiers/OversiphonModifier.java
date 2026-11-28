@@ -2,6 +2,7 @@ package com.npstra.casualtinkering.modifiers;
 
 import com.npstra.casualtinkering.CasualTinkering;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -48,7 +49,15 @@ public class OversiphonModifier extends Modifier {
             return;
         }
         event.setCanceled(true);
-        orb.discard();
+        CompoundTag tag = orb.saveWithoutId(new CompoundTag());
+        int count = tag.getInt("Count");
+        if (count > 1) {
+            tag.putInt("Count", count - 1);
+            orb.readAdditionalSaveData(tag);
+            player.takeXpDelay = 2;
+        } else {
+            orb.discard();
+        }
         int leftover = value - used;
         if (leftover > 0) {
             player.giveExperiencePoints(leftover);

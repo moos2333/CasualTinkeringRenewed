@@ -5,8 +5,8 @@
     { "text": "Triple Shot I is built in, releasing three knives per throw.", "paragraph": true }
   ],
   "properties": [
-    "2.0 Velocity",
-    "1.0 Projectile Damage",
+    "1.25 Velocity",
+    "1.25 Projectile Damage",
     "200% Damage Multiplier",
     "Triple Shot I",
     "0.8 Water Inertia"

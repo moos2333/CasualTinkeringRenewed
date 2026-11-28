@@ -16,22 +16,27 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.entity.ProjectileWithKnockback;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileShootModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.ranged.ScheduledProjectileTaskModifierHook;
+import slimeknights.tconstruct.library.tools.capability.PersistentDataCapability;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.library.utils.Schedule;
 import slimeknights.tconstruct.tools.entity.ToolProjectile;
 
-public class ThrownBoomerang extends Projectile implements ToolProjectile {
+public class ThrownBoomerang extends Projectile implements ToolProjectile, ProjectileWithKnockback {
     private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(ThrownBoomerang.class, EntityDataSerializers.ITEM_STACK);
 
     private static final int MAX_LIFE = 600;
     private static final int RETURN_TICK = 30;
     private static final float WATER_INERTIA = 0.8f;
-    private static final float KNOCKBACK_RATIO = 0.5f;
 
     private ItemStack toolStack = ItemStack.EMPTY;
     private IToolStackView tool;
@@ -61,6 +66,14 @@ public class ThrownBoomerang extends Projectile implements ToolProjectile {
         this.setPos(pos.x, pos.y - 0.1, pos.z);
         this.entityData.set(STACK, this.toolStack);
         this.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot(), 0.0f, velocity, inaccuracy);
+        ModDataNBT data = PersistentDataCapability.getOrWarn(this);
+        for (ModifierEntry entry : tool.getModifiers()) {
+            ProjectileShootModifierHook hook = entry.getHook(ModifierHooks.PROJECTILE_SHOT);
+            if (hook != null) {
+                hook.onProjectileShoot(tool, entry, shooter, stack, this, null, data, true);
+            }
+        }
+        this.tasks = ScheduledProjectileTaskModifierHook.createSchedule(tool, stack, this, null, data);
     }
 
     private void setStack(ItemStack stack) {
@@ -72,7 +85,11 @@ public class ThrownBoomerang extends Projectile implements ToolProjectile {
 
     private void applyToolStats(IToolStackView tool) {
         this.damage = (float) tool.getStats().get(ToolStats.ATTACK_DAMAGE);
-        this.knockback = (float) tool.getStats().get(ToolStats.KNOCKBACK_RESISTANCE) * KNOCKBACK_RATIO;
+    }
+
+    @Override
+    public void addKnockback(float amount) {
+        this.knockback += amount;
     }
 
     @Override

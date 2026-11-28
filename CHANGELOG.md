@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.4
+
+- Fixed projectile modifiers — including knockback and delayed effects — not working when applied to the Boomerang.
+- Fixed Oversiphon consuming a whole stack of merged experience orbs instead of one, which could silently discard large amounts of experience.
+- Corrected the Throwing Knife's listed velocity and projectile damage, and added the Heat Ray Gun's durability multiplier to its encyclopedia entry.
+
 ## 1.6.3
 
 - Quartziron is now classified as a heavy ranged material, so its ranged traits and encyclopedia entry work as intended.
